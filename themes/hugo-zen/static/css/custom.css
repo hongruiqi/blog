@@ -28,8 +28,7 @@ main {
 }
 
 .container {
-  width: 90%;
-  max-width: 600px;
+  width: 60%;
 }
 
 .header-logo img {
@@ -49,6 +48,7 @@ main {
 
 .entry-title {
   margin-bottom: 0;
+  display: inline-block;
 }
 
 .entry-title a {
@@ -56,10 +56,10 @@ main {
 }
 
 .entry-meta {
+  margin-left: 10px;
   display: inline-block;
   margin-bottom: 2rem;
-  font-size: 1.7rem;
-  color: #888;
+  color: #999;
 }
 
 .footer-link {

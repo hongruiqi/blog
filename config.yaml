@@ -6,8 +6,8 @@ indexes:
 baseurl: "http://qcoding.net"
 title: "Qi's Blog"
 canonifyurls: true
+copyright: "2016 Qi."
 
 params:
   logo: "/images/logo.jpg"
   github: "http://github.com/hongruiqi"
-  copyright: "2016 Qi."
