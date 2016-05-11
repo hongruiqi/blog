@@ -36,10 +36,7 @@ print(&amp;quot;foo&amp;quot;); print(&amp;quot;bar&amp;quot;)
 
 &lt;p&gt;每个Swift源码文件中包含多行文本，每个换行符结束一条语句。语句也可以以分号结束，但除了用于分隔同一行内的多条语句外，分号都被省略。&lt;/p&gt;
 
-&lt;p&gt;print函数由于打印程序中的变量值，如&lt;/p&gt;
-
-&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;print(&amp;quot;variable x&#39;s value is \(x)&amp;quot;)
-&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;print函数由于打印输出字符串。&lt;/p&gt;
 
 &lt;h1 id=&#34;变量和常量:5831586e09f47eeddab9e6a7787074e5&#34;&gt;变量和常量&lt;/h1&gt;
 
