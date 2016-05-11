@@ -6,3 +6,6 @@ indexes:
 baseurl: "http://qcoding.net"
 title: "Qi's Blog"
 canonifyurls: true
+
+params:
+  logo: "/images/logo.jpg"
