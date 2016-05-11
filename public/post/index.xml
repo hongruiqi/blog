@@ -173,7 +173,7 @@ let greet = &amp;quot;hello \(name)&amp;quot; // greet被赋值为&amp;quot;hell
 
 &lt;h2 id=&#34;tuple:5831586e09f47eeddab9e6a7787074e5&#34;&gt;Tuple&lt;/h2&gt;
 
-&lt;p&gt;Swift中可以通过&lt;code&gt;Tuple&lt;/code&gt;将若干个不同类型的变量绑定在一起。&lt;/p&gt;
+&lt;p&gt;Swift中可以通过&lt;code&gt;Tuple&lt;/code&gt;将若干个不同类型的值绑定在一起。&lt;/p&gt;
 
 &lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let http404Error = (404, &amp;quot;Not Found&amp;quot;) // http404Error的类型是(Int, String)
 &lt;/code&gt;&lt;/pre&gt;
