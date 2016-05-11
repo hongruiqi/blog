@@ -3,7 +3,13 @@
   
   <url>
     <loc>http://qcoding.net/</loc>
+    <lastmod>2016-05-11T17:05:30+08:00</lastmod>
     <priority>0</priority>
+  </url>
+  
+  <url>
+    <loc>http://qcoding.net/post/iOS_note/</loc>
+    <lastmod>2016-05-11T17:05:30+08:00</lastmod>
   </url>
   
 </urlset>
