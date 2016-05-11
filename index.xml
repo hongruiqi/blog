@@ -6,16 +6,103 @@
     <description>Recent content on Qi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>2016 Qi.</copyright>
-    <lastBuildDate>Wed, 11 May 2016 17:05:30 +0800</lastBuildDate>
+    <lastBuildDate>Wed, 11 May 2016 18:16:40 +0800</lastBuildDate>
     <atom:link href="http://qcoding.net/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
-      <title>iOS开发学习笔记</title>
-      <link>http://qcoding.net/post/iOS_note/</link>
+      <title>Swift从入坑到弃坑_函数</title>
+      <link>http://qcoding.net/post/swift_tutorial_2/</link>
+      <pubDate>Wed, 11 May 2016 18:16:40 +0800</pubDate>
+      
+      <guid>http://qcoding.net/post/swift_tutorial_2/</guid>
+      <description>
+
+&lt;h1 id=&#34;函数声明:9f1fbbd5669bf4a8c12bcf3ff848830b&#34;&gt;函数声明&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;func sum1(withX x:Int, andY y:Int) -&amp;gt; Int {
+  return x + y
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;func&lt;/code&gt;关键字表示函数声明的开始，接着是函数名&lt;code&gt;sum&lt;/code&gt;。函数名后括号内的是函数的形参列表，以逗号分隔。其中每个参数都具有&lt;code&gt;[外部名称] [内部名称]:[类型]&lt;/code&gt;的形式。内部名称供函数内部访问变量使用；外部名称在函数调用时使用。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;sum1(withX:1, andY:2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;外部名称在声明时可省略，默认使用内部名称作为外部名称。函数在被调用时必须在实参列表中指定外部名称，除非参数在声明时使用&lt;code&gt;_&lt;/code&gt;作为外部名称。第一个参数可直接省略外部名称，调用时无需指定。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;func sum2(x:Int, _ y:Int) -&amp;gt; Int {
+  return x + y
+}
+
+sum2(1, 2)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;&lt;code&gt;-&amp;gt;&lt;/code&gt;后的是函数的返回值类型，返回值至多只能有一个。若没有返回值，可如下表示。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;func foo1() -&amp;gt; Void { } // 使用Void类型
+func foo2() -&amp;gt; () { } // 使用0个元素的Tuple
+func foo3() { } // 返回值和-&amp;gt;一起省略
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;花括号内的是函数体，return语句指定了函数的返回值。&lt;/p&gt;
+
+&lt;p&gt;Swift中函数的名称由括号前的名称和参数的外部名称共同构成，如&lt;code&gt;sum1&lt;/code&gt;的函数名称为&lt;code&gt;sum1(withX:andY:)&lt;/code&gt;。强制省略的外部名称由&lt;code&gt;_&lt;/code&gt;表示，如&lt;code&gt;sum2&lt;/code&gt;的函数名称为&lt;code&gt;sum2(_:_:)&lt;/code&gt;。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Swift从入坑到弃坑_基础</title>
+      <link>http://qcoding.net/post/swift_tutorial_1/</link>
       <pubDate>Wed, 11 May 2016 17:05:30 +0800</pubDate>
       
-      <guid>http://qcoding.net/post/iOS_note/</guid>
-      <description></description>
+      <guid>http://qcoding.net/post/swift_tutorial_1/</guid>
+      <description>
+
+&lt;h1 id=&#34;hello-world:5831586e09f47eeddab9e6a7787074e5&#34;&gt;Hello World&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;print(&amp;quot;hello&amp;quot;)
+print(&amp;quot;world&amp;quot;)
+
+print(&amp;quot;foo&amp;quot;); print(&amp;quot;bar&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;每个Swift源码文件中包含多行文本，每个换行符结束一条语句。语句也可以以分号结束，但除了用于分隔同一行内的多条语句外，分号都被省略。print函数用于输出其参数的值。&lt;/p&gt;
+
+&lt;h1 id=&#34;变量和常量:5831586e09f47eeddab9e6a7787074e5&#34;&gt;变量和常量&lt;/h1&gt;
+
+&lt;p&gt;Swift中的名字必须先声明才能使用。&lt;code&gt;let&lt;/code&gt;关键字用于声明常量，&lt;code&gt;var&lt;/code&gt;关键字用于声明变量。声明通常伴随着初始化。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let one = 1
+var two = 2
+
+two = one // 变量可以改变
+one = tow // 编译错误！常量初始化后不可改变
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift是强类型的语言，每个变量在声明时都确定了类型。如果变量声明的同时进行了初始化，则其类型可由编译器根据初始化的值自动推断（&lt;code&gt;one&lt;/code&gt;和&lt;code&gt;two&lt;/code&gt;由整数初始化，故自动推断为&lt;code&gt;Int&lt;/code&gt;型）；也可以手工指定变量类型。变量声明后，只能被赋予同类型的值，否则无法通过编译。变量必须初始化后才能使用，使用未经初始化的变量会造成编译错误。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;var three: Int = 3
+three = &amp;quot;123&amp;quot; // 编译错误！three为整型，无法被赋予字符串
+
+var four: Int
+three = four // 编译错误！four未被初始化
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;注释:5831586e09f47eeddab9e6a7787074e5&#34;&gt;注释&lt;/h1&gt;
+
+&lt;p&gt;Swift中使用&lt;code&gt;//&lt;/code&gt;进行单行注释，使用&lt;code&gt;/* */&lt;/code&gt;进行多行注释，多行注释可嵌套，便于扩展注释的范围。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;// 这是一个单行注释
+/*
+   这是
+   一个
+   /* 嵌套的 */
+   多行
+   注释
+*/
+&lt;/code&gt;&lt;/pre&gt;
+</description>
     </item>
     
   </channel>
