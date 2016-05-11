@@ -63,6 +63,20 @@ func foo3() { } // 返回值和-&gt;一起省略
 
 <p>Swift中函数的名称由括号前的名称和参数的外部名称共同构成，如<code>sum1</code>的函数名称为<code>sum1(withX:andY:)</code>。强制省略的外部名称由<code>_</code>表示，如<code>sum2</code>的函数名称为<code>sum2(_:_:)</code>。</p>
 
+<h1 id="函数重载:9f1fbbd5669bf4a8c12bcf3ff848830b">函数重载</h1>
+
+<p>Swift中具有相同函数名（包含外部名称）的函数，若函数参数和返回值不同，则可以重载。若只有返回值不同，则函数调用时，必须可从上下文推断要调用函数的返回值，否则会造成编译错误。</p>
+
+<pre><code class="language-swift">func sum(x:Int, _ y:Int) -&gt; Int
+func sum(x:Float, _ y:Float) -&gt; Float
+
+func say() -&gt; String
+func say() -&gt; Int // 仅有返回值不同也可重载
+
+let x = say() // 编译错误！无法推导x的类型，无法判断要调用的重载函数
+let y: Int = say() // OK。调用返回值为Int的重载函数
+</code></pre>
+
 			</section>
 		</article>
 	</main>

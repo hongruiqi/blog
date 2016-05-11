@@ -48,6 +48,20 @@ func foo3() { } // 返回值和-&amp;gt;一起省略
 &lt;p&gt;花括号内的是函数体，return语句指定了函数的返回值。&lt;/p&gt;
 
 &lt;p&gt;Swift中函数的名称由括号前的名称和参数的外部名称共同构成，如&lt;code&gt;sum1&lt;/code&gt;的函数名称为&lt;code&gt;sum1(withX:andY:)&lt;/code&gt;。强制省略的外部名称由&lt;code&gt;_&lt;/code&gt;表示，如&lt;code&gt;sum2&lt;/code&gt;的函数名称为&lt;code&gt;sum2(_:_:)&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h1 id=&#34;函数重载:9f1fbbd5669bf4a8c12bcf3ff848830b&#34;&gt;函数重载&lt;/h1&gt;
+
+&lt;p&gt;Swift中具有相同函数名（包含外部名称）的函数，若函数参数和返回值不同，则可以重载。若只有返回值不同，则函数调用时，必须可从上下文推断要调用函数的返回值，否则会造成编译错误。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;func sum(x:Int, _ y:Int) -&amp;gt; Int
+func sum(x:Float, _ y:Float) -&amp;gt; Float
+
+func say() -&amp;gt; String
+func say() -&amp;gt; Int // 仅有返回值不同也可重载
+
+let x = say() // 编译错误！无法推导x的类型，无法判断要调用的重载函数
+let y: Int = say() // OK。调用返回值为Int的重载函数
+&lt;/code&gt;&lt;/pre&gt;
 </description>
     </item>
     
@@ -67,7 +81,12 @@ print(&amp;quot;world&amp;quot;)
 print(&amp;quot;foo&amp;quot;); print(&amp;quot;bar&amp;quot;)
 &lt;/code&gt;&lt;/pre&gt;
 
-&lt;p&gt;每个Swift源码文件中包含多行文本，每个换行符结束一条语句。语句也可以以分号结束，但除了用于分隔同一行内的多条语句外，分号都被省略。print函数用于输出其参数的值。&lt;/p&gt;
+&lt;p&gt;每个Swift源码文件中包含多行文本，每个换行符结束一条语句。语句也可以以分号结束，但除了用于分隔同一行内的多条语句外，分号都被省略。&lt;/p&gt;
+
+&lt;p&gt;print函数由于打印程序中的变量值，如&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;print(&amp;quot;variable x&#39;s value is \(x)&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
 
 &lt;h1 id=&#34;变量和常量:5831586e09f47eeddab9e6a7787074e5&#34;&gt;变量和常量&lt;/h1&gt;
 
@@ -102,6 +121,70 @@ three = four // 编译错误！four未被初始化
    注释
 */
 &lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;基本数据类型:5831586e09f47eeddab9e6a7787074e5&#34;&gt;基本数据类型&lt;/h1&gt;
+
+&lt;h2 id=&#34;整型:5831586e09f47eeddab9e6a7787074e5&#34;&gt;整型&lt;/h2&gt;
+
+&lt;p&gt;Swift中的整型分为有符号整型和无符号整型，按照8位、16位、32位、64位的长度分别为：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;有符号整型：&lt;code&gt;Int8&lt;/code&gt;，&lt;code&gt;Int16&lt;/code&gt;，&lt;code&gt;int32&lt;/code&gt;，&lt;code&gt;int64&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;无符号整型：&lt;code&gt;UInt8&lt;/code&gt;，&lt;code&gt;UInt16&lt;/code&gt;，&lt;code&gt;UInt32&lt;/code&gt;，&lt;code&gt;UInt64&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;此外，还有两种特殊的整型类型，&lt;code&gt;Int&lt;/code&gt;和&lt;code&gt;UInt&lt;/code&gt;。其长度与平台有关，在32位系统上为32位，在64位系统上为64位。每种整型的范围可如下得到。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let minValue = UInt8.min
+let maxValue = UInt8.max
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift中的整型在使用&lt;code&gt;+&lt;/code&gt;、&lt;code&gt;-&lt;/code&gt;、&lt;code&gt;*&lt;/code&gt;溢出时，会产生运行时错误。不同类型的整型无法相互赋值，必须先进行转换。因此，为方便变量传递，通常都使用&lt;code&gt;Int&lt;/code&gt;类型。&lt;/p&gt;
+
+&lt;h2 id=&#34;浮点数:5831586e09f47eeddab9e6a7787074e5&#34;&gt;浮点数&lt;/h2&gt;
+
+&lt;p&gt;Swift中有两种浮点型，分别为32位的&lt;code&gt;Float&lt;/code&gt;和64位的&lt;code&gt;Double&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h2 id=&#34;布尔型:5831586e09f47eeddab9e6a7787074e5&#34;&gt;布尔型&lt;/h2&gt;
+
+&lt;p&gt;Swift中的布尔型命名为&lt;code&gt;Bool&lt;/code&gt;，其真值为&lt;code&gt;true&lt;/code&gt;，假值为&lt;code&gt;false&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h2 id=&#34;字符串:5831586e09f47eeddab9e6a7787074e5&#34;&gt;字符串&lt;/h2&gt;
+
+&lt;p&gt;Swift中的字符串类型命名为&lt;code&gt;String&lt;/code&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let str: String = &amp;quot;hello&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;右侧的字符串中可插入变量名，在赋值前，其中的变量名会被替换为变量的值。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let name = &amp;quot;Qi&amp;quot;
+let greet = &amp;quot;hello \(name)&amp;quot; // greet被赋值为&amp;quot;hello Qi&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;tuple:5831586e09f47eeddab9e6a7787074e5&#34;&gt;Tuple&lt;/h2&gt;
+
+&lt;p&gt;Swift中可以通过&lt;code&gt;Tuple&lt;/code&gt;将若干个不同类型的变量绑定在一起。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let http404Error = (404, &amp;quot;Not Found&amp;quot;) // http404Error的类型是(Int, String)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;通过以下方法可以解出&lt;code&gt;Tuple&lt;/code&gt;中的数据&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let (statusCode, statusText) = http404Error
+// 或者
+let statusCode = http404Error.0 // Tuple中第0个元素
+let statusText = http404Error.1 // Tuple中第1个元素
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;断言:5831586e09f47eeddab9e6a7787074e5&#34;&gt;断言&lt;/h1&gt;
+
+&lt;p&gt;Swift中可通过&lt;code&gt;assert&lt;/code&gt;判断程序运行的输入和产出是否符合预期，若不符合则程序产生运行时错误。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;assert(age &amp;gt;= 0, &amp;quot;A person&#39;s age cannot be less than zero&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;assert在开启编译器优化时会被忽略。&lt;/p&gt;
 </description>
     </item>
     
