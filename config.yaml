@@ -9,3 +9,4 @@ canonifyurls: true
 
 params:
   logo: "/images/logo.jpg"
+  github: "github.com/hongruiqi"
