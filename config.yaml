@@ -10,3 +10,4 @@ canonifyurls: true
 params:
   logo: "/images/logo.jpg"
   github: "http://github.com/hongruiqi"
+  copyright: "2016 Qi."
