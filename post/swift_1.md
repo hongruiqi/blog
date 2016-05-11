@@ -1,3 +1,5 @@
+<!--
+
 +++
 date = "2016-05-11T17:05:30+08:00"
 draft = false
@@ -5,6 +7,8 @@ title = "Swift从入坑到弃坑_基础"
 slug = "swift_tutorial_1"
 
 +++
+
+-->
 
 # Hello World
 
@@ -99,7 +103,7 @@ let greet = "hello \(name)" // greet被赋值为"hello Qi"
 
 ## Tuple
 
-Swift中可以通过`Tuple`将若干个不同类型的变量绑定在一起。
+Swift中可以通过`Tuple`将若干个不同类型的值绑定在一起。
 
 ```swift
 let http404Error = (404, "Not Found") // http404Error的类型是(Int, String)
