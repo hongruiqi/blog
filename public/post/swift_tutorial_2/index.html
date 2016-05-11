@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="http://qcoding.net/css/skeleton.css">
 <link rel="stylesheet" href="http://qcoding.net/css/custom.css">
 <link rel="alternate" href="http://qcoding.net/index.xml" type="application/rss+xml" title="Qi&#39;s Blog">
-<title>Swift从入坑到弃坑_函数 - Qi&#39;s Blog</title>
+<title>Swift从入坑到弃坑_可选值 - Qi&#39;s Blog</title>
 </head>
 <body>
 
@@ -26,57 +26,10 @@
 
 	<main role="main">
 		<article itemscope itemtype="http://schema.org/BlogPosting">
-			<h1 class="entry-title" itemprop="headline">Swift从入坑到弃坑_函数</h1>
+			<h1 class="entry-title" itemprop="headline">Swift从入坑到弃坑_可选值</h1>
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2016-05-11">May 11, 2016</time></span>
 			<section itemprop="entry-text">
 				
-
-<h1 id="函数声明:9f1fbbd5669bf4a8c12bcf3ff848830b">函数声明</h1>
-
-<pre><code class="language-swift">func sum1(withX x:Int, andY y:Int) -&gt; Int {
-  return x + y
-}
-</code></pre>
-
-<p><code>func</code>关键字表示函数声明的开始，接着是函数名<code>sum</code>。函数名后括号内的是函数的形参列表，以逗号分隔。其中每个参数都具有<code>[外部名称] [内部名称]:[类型]</code>的形式。内部名称供函数内部访问变量使用；外部名称在函数调用时使用。</p>
-
-<pre><code class="language-swift">sum1(withX:1, andY:2)
-</code></pre>
-
-<p>外部名称在声明时可省略，默认使用内部名称作为外部名称。函数在被调用时必须在实参列表中指定外部名称，除非参数在声明时使用<code>_</code>作为外部名称。第一个参数可直接省略外部名称，调用时无需指定。</p>
-
-<pre><code class="language-swift">func sum2(x:Int, _ y:Int) -&gt; Int {
-  return x + y
-}
-
-sum2(1, 2)
-</code></pre>
-
-<p><code>-&gt;</code>后的是函数的返回值类型，返回值至多只能有一个。若没有返回值，可如下表示。</p>
-
-<pre><code class="language-swift">func foo1() -&gt; Void { } // 使用Void类型
-func foo2() -&gt; () { } // 使用0个元素的Tuple
-func foo3() { } // 返回值和-&gt;一起省略
-</code></pre>
-
-<p>花括号内的是函数体，return语句指定了函数的返回值。</p>
-
-<p>Swift中函数的名称由括号前的名称和参数的外部名称共同构成，如<code>sum1</code>的函数名称为<code>sum1(withX:andY:)</code>。强制省略的外部名称由<code>_</code>表示，如<code>sum2</code>的函数名称为<code>sum2(_:_:)</code>。</p>
-
-<h1 id="函数重载:9f1fbbd5669bf4a8c12bcf3ff848830b">函数重载</h1>
-
-<p>Swift中具有相同函数名（包含外部名称）的函数，若函数参数和返回值不同，则可以重载。若只有返回值不同，则函数调用时，必须可从上下文推断要调用函数的返回值，否则会造成编译错误。</p>
-
-<pre><code class="language-swift">func sum(x:Int, _ y:Int) -&gt; Int
-func sum(x:Float, _ y:Float) -&gt; Float
-
-func say() -&gt; String
-func say() -&gt; Int // 仅有返回值不同也可重载
-
-let x = say() // 编译错误！无法推导x的类型，无法判断要调用的重载函数
-let y: Int = say() // OK。调用返回值为Int的重载函数
-</code></pre>
-
 			</section>
 		</article>
 	</main>
