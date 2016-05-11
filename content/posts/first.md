@@ -1,6 +1,6 @@
 +++
 date = "2016-05-10T21:56:45+08:00"
-draft = false
+draft = true
 title = "FUNDAMENTAL CONCEPTS"
 
 +++
