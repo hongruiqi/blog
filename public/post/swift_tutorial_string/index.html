@@ -10,7 +10,7 @@
 <link rel="stylesheet" href="http://qcoding.net/css/skeleton.css">
 <link rel="stylesheet" href="http://qcoding.net/css/custom.css">
 <link rel="alternate" href="http://qcoding.net/index.xml" type="application/rss+xml" title="Qi&#39;s Blog">
-<title>Posts - Qi&#39;s Blog</title>
+<title>Swift从入坑到弃坑_字符和字符串 - Qi&#39;s Blog</title>
 </head>
 <body>
 
@@ -25,23 +25,37 @@
 
 
 	<main role="main">
-		<h1 class="list-title">Posts</h1>
-
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="http://qcoding.net/post/swift_tutorial_basics/">Swift从入坑到弃坑_基础</a></h2>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="2016-05-11">May 11, 2016</time></span>
-		</article>
-
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="http://qcoding.net/post/swift_tutorial_string/">Swift从入坑到弃坑_字符和字符串</a></h2>
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">Swift从入坑到弃坑_字符和字符串</h1>
 			<span class="entry-meta"><time itemprop="datePublished" datetime="2016-05-12">May 12, 2016</time></span>
-		</article>
+			<section itemprop="entry-text">
+				
 
-		<article itemscope itemtype="http://schema.org/Blog">
-			<h2 class="entry-title" itemprop="headline"><a href="http://qcoding.net/post/swift_tutorial_optional/">Swift从入坑到弃坑_可选值</a></h2>
-			<span class="entry-meta"><time itemprop="datePublished" datetime="2016-05-11">May 11, 2016</time></span>
-		</article>
+<h1 id="字符串类型和初始化:bf537d4aea28ba15c433077890eb0a13">字符串类型和初始化</h1>
 
+<p>Swift中的字符串类型为<code>String</code>，其中包含若干<code>Character</code>类型的字符。</p>
+
+<pre><code class="language-swift">let greet = &quot;hello world&quot; // String
+let letter = &quot;a&quot; // Character
+</code></pre>
+
+<h1 id="字符串的常用操作:bf537d4aea28ba15c433077890eb0a13">字符串的常用操作</h1>
+
+<pre><code class="language-swift">// 字符串初始化
+var emptyString = &quot;&quot;
+var anotherEmptyString = String()
+
+// 字符串判空
+emptyString.isEmpty
+
+// 字符串连接
+var a = &quot;hello&quot;
+a += &quot;world&quot;
+a = a + &quot;!&quot;
+</code></pre>
+
+			</section>
+		</article>
 	</main>
 
 

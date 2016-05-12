@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.15" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="//fonts.googleapis.com/css?family=Roboto:400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="http://qcoding.net/css/normalize.css">
+<link rel="stylesheet" href="http://qcoding.net/css/skeleton.css">
+<link rel="stylesheet" href="http://qcoding.net/css/custom.css">
+<link rel="alternate" href="http://qcoding.net/index.xml" type="application/rss+xml" title="Qi&#39;s Blog">
+<title>Swift从入坑到弃坑_基础 - Qi&#39;s Blog</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		<div class="header-logo">
+			<a href="http://qcoding.net/"><img src="http://qcoding.net/images/logo.jpg" width="60" height="60" alt="Qi&#39;s Blog"></a>
+		</div>
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="http://schema.org/BlogPosting">
+			<h1 class="entry-title" itemprop="headline">Swift从入坑到弃坑_基础</h1>
+			<span class="entry-meta"><time itemprop="datePublished" datetime="2016-05-11">May 11, 2016</time></span>
+			<section itemprop="entry-text">
+				
+
+<h1 id="hello-world:b17b3696e07fa6ec22e07021c5329587">Hello World</h1>
+
+<pre><code class="language-swift">print(&quot;hello&quot;)
+print(&quot;world&quot;)
+
+print(&quot;foo&quot;); print(&quot;bar&quot;)
+</code></pre>
+
+<p>每个Swift源码文件中包含多行文本，每个换行符结束一条语句。语句也可以以分号结束，但除了用于分隔同一行内的多条语句外，分号都被省略。</p>
+
+<p>print函数由于打印输出字符串。</p>
+
+<h1 id="变量和常量:b17b3696e07fa6ec22e07021c5329587">变量和常量</h1>
+
+<p>Swift中的名字必须先声明才能使用。<code>let</code>关键字用于声明常量，<code>var</code>关键字用于声明变量。声明通常伴随着初始化。</p>
+
+<pre><code class="language-swift">let one = 1
+var two = 2
+
+two = one // 变量可以改变
+one = tow // 编译错误！常量初始化后不可改变
+</code></pre>
+
+<p>Swift是强类型的语言，每个变量在声明时都确定了类型。如果变量声明的同时进行了初始化，则其类型可由编译器根据初始化的值自动推断（<code>one</code>和<code>two</code>由整数初始化，故自动推断为<code>Int</code>型）；也可以手工指定变量类型。变量声明后，只能被赋予同类型的值，否则无法通过编译。变量必须初始化后才能使用，使用未经初始化的变量会造成编译错误。</p>
+
+<pre><code class="language-swift">var three: Int = 3
+three = &quot;123&quot; // 编译错误！three为整型，无法被赋予字符串
+
+var four: Int
+three = four // 编译错误！four未被初始化
+</code></pre>
+
+<h1 id="注释:b17b3696e07fa6ec22e07021c5329587">注释</h1>
+
+<p>Swift中使用<code>//</code>进行单行注释，使用<code>/* */</code>进行多行注释，多行注释可嵌套，便于扩展注释的范围。</p>
+
+<pre><code class="language-swift">// 这是一个单行注释
+/*
+   这是
+   一个
+   /* 嵌套的 */
+   多行
+   注释
+*/
+</code></pre>
+
+<h1 id="基本数据类型:b17b3696e07fa6ec22e07021c5329587">基本数据类型</h1>
+
+<h2 id="整型:b17b3696e07fa6ec22e07021c5329587">整型</h2>
+
+<p>Swift中的整型分为有符号整型和无符号整型，按照8位、16位、32位、64位的长度分别为：</p>
+
+<ul>
+<li>有符号整型：<code>Int8</code>，<code>Int16</code>，<code>int32</code>，<code>int64</code></li>
+<li>无符号整型：<code>UInt8</code>，<code>UInt16</code>，<code>UInt32</code>，<code>UInt64</code></li>
+</ul>
+
+<p>此外，还有两种特殊的整型类型，<code>Int</code>和<code>UInt</code>。其长度与平台有关，在32位系统上为32位，在64位系统上为64位。每种整型的范围可如下得到。</p>
+
+<pre><code class="language-swift">let minValue = UInt8.min
+let maxValue = UInt8.max
+</code></pre>
+
+<p>Swift中的整型在使用<code>+</code>、<code>-</code>、<code>*</code>溢出时，会产生运行时错误。不同类型的整型无法相互赋值，必须先进行转换。因此，为方便变量传递，通常都使用<code>Int</code>类型。</p>
+
+<h2 id="浮点数:b17b3696e07fa6ec22e07021c5329587">浮点数</h2>
+
+<p>Swift中有两种浮点型，分别为32位的<code>Float</code>和64位的<code>Double</code>。</p>
+
+<h2 id="布尔型:b17b3696e07fa6ec22e07021c5329587">布尔型</h2>
+
+<p>Swift中的布尔型命名为<code>Bool</code>，其真值为<code>true</code>，假值为<code>false</code>。</p>
+
+<h2 id="字符串:b17b3696e07fa6ec22e07021c5329587">字符串</h2>
+
+<p>Swift中的字符串类型命名为<code>String</code>。</p>
+
+<pre><code class="language-swift">let str: String = &quot;hello&quot;
+</code></pre>
+
+<p>右侧的字符串中可插入变量名，在赋值前，其中的变量名会被替换为变量的值。</p>
+
+<pre><code class="language-swift">let name = &quot;Qi&quot;
+let greet = &quot;hello \(name)&quot; // greet被赋值为&quot;hello Qi&quot;
+</code></pre>
+
+<h2 id="tuple:b17b3696e07fa6ec22e07021c5329587">Tuple</h2>
+
+<p>Swift中可以通过<code>Tuple</code>将若干个不同类型的值绑定在一起。</p>
+
+<pre><code class="language-swift">let http404Error = (404, &quot;Not Found&quot;) // http404Error的类型是(Int, String)
+</code></pre>
+
+<p>通过以下方法可以解出<code>Tuple</code>中的数据</p>
+
+<pre><code class="language-swift">let (statusCode, statusText) = http404Error
+// 或者
+let statusCode = http404Error.0 // Tuple中第0个元素
+let statusText = http404Error.1 // Tuple中第1个元素
+</code></pre>
+
+<h1 id="断言:b17b3696e07fa6ec22e07021c5329587">断言</h1>
+
+<p>Swift中可通过<code>assert</code>判断程序运行的输入和产出是否符合预期，若不符合则程序产生运行时错误。</p>
+
+<pre><code class="language-swift">assert(age &gt;= 0, &quot;A person's age cannot be less than zero&quot;)
+</code></pre>
+
+<p>assert在开启编译器优化时会被忽略。</p>
+
+			</section>
+		</article>
+	</main>
+
+
+	<footer role="contentinfo">
+		<div class="hr"></div>
+		<div class="footer-link">
+			
+			<a href="http://github.com/hongruiqi" target="_blank">GitHub</a>
+		</div>
+		<div class="copyright">Copyright &copy; 2016 Qi.</div>
+	</footer>
+
+</div>
+
+
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</body>
+</html>
