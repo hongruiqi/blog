@@ -63,6 +63,12 @@ h1.entry-title {
   text-shadow: none;
 }
 
+@media screen and (max-device-width:480px){
+    h1.entry-title {
+        font-size: 2.1rem;
+    }
+}
+
 .entry-title a {
   text-decoration: none;
 }
