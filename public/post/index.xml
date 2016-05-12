@@ -2,19 +2,19 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Posts on Qi&#39;s Blog</title>
-    <link>http://qcoding.net/post/</link>
+    <link>http://codelib.me/post/</link>
     <description>Recent content in Posts on Qi&#39;s Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>2016 Qi.</copyright>
     <lastBuildDate>Wed, 11 May 2016 17:05:30 +0800</lastBuildDate>
-    <atom:link href="http://qcoding.net/post/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="http://codelib.me/post/index.xml" rel="self" type="application/rss+xml" />
     
     <item>
       <title>Swift从入坑到弃坑_基础</title>
-      <link>http://qcoding.net/post/swift_tutorial_basics/</link>
+      <link>http://codelib.me/post/swift_tutorial_basics/</link>
       <pubDate>Wed, 11 May 2016 17:05:30 +0800</pubDate>
       
-      <guid>http://qcoding.net/post/swift_tutorial_basics/</guid>
+      <guid>http://codelib.me/post/swift_tutorial_basics/</guid>
       <description>
 
 &lt;h1 id=&#34;hello-world:b17b3696e07fa6ec22e07021c5329587&#34;&gt;Hello World&lt;/h1&gt;
@@ -131,10 +131,10 @@ let statusText = http404Error.1 // Tuple中第1个元素
     
     <item>
       <title>Swift从入坑到弃坑_字符和字符串</title>
-      <link>http://qcoding.net/post/swift_tutorial_string/</link>
+      <link>http://codelib.me/post/swift_tutorial_string/</link>
       <pubDate>Thu, 12 May 2016 07:38:03 +0800</pubDate>
       
-      <guid>http://qcoding.net/post/swift_tutorial_string/</guid>
+      <guid>http://codelib.me/post/swift_tutorial_string/</guid>
       <description>
 
 &lt;h1 id=&#34;字符串类型和初始化:bf537d4aea28ba15c433077890eb0a13&#34;&gt;字符串类型和初始化&lt;/h1&gt;
@@ -164,10 +164,10 @@ a = a + &amp;quot;!&amp;quot;
     
     <item>
       <title>Swift从入坑到弃坑_可选值</title>
-      <link>http://qcoding.net/post/swift_tutorial_optional/</link>
+      <link>http://codelib.me/post/swift_tutorial_optional/</link>
       <pubDate>Wed, 11 May 2016 18:16:40 +0800</pubDate>
       
-      <guid>http://qcoding.net/post/swift_tutorial_optional/</guid>
+      <guid>http://codelib.me/post/swift_tutorial_optional/</guid>
       <description>
 
 &lt;h1 id=&#34;可选值:dba3b55966480093945a42c46dc9c237&#34;&gt;可选值&lt;/h1&gt;
