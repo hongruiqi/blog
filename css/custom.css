@@ -86,7 +86,12 @@ h1.entry-title {
   background: linear-gradient(to right, white, #E1E1E1, white);
 }
 
-@media screen and (min-device-width:480px){
+@media screen and (max-device-width:480px){
+    #toc {
+        display: none;
+    }
+}
+
 #toc {
     position: fixed;
     left: 25px;
@@ -104,5 +109,4 @@ h1.entry-title {
 
 #toc ul {
     margin: 0.5rem 0 0.5rem 2rem;
-}
 }
