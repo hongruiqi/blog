@@ -1,13 +1,12 @@
 <!--
-
 +++
 date = "2016-05-11T17:05:30+08:00"
 draft = false
 title = "Swift从入坑到弃坑_基础"
-slug = "swift_tutorial_1"
+slug = "swift_tutorial_basics"
+weight = 1
 
 +++
-
 -->
 
 # Hello World

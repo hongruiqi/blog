@@ -1,10 +1,13 @@
+<!--
 +++
 date = "2016-05-11T21:09:04+08:00"
 draft = true
 title = "Swift从入坑到弃坑_函数"
-slug = "swift_tutorial_3"
+slug = "swift_tutorial_function"
+weight = 4
 
 +++
+-->
 
 # 函数声明
 
