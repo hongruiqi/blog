@@ -1,5 +1,7 @@
 {{ partial "header.html" . }}
-
+    <div id="toc">
+    {{ .TableOfContents }}
+    </div>
 	<main role="main">
 		<article itemscope itemtype="http://schema.org/BlogPosting">
 			<h1 class="entry-title" itemprop="headline">{{ .Title }}</h1>
