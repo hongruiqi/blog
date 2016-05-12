@@ -66,6 +66,7 @@ h1.entry-title {
 @media screen and (max-device-width:480px){
     h1.entry-title {
         font-size: 2.1rem;
+        margin-bottom: 10px;
     }
 }
 
