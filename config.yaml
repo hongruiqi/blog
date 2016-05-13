@@ -3,7 +3,7 @@ layoutdir: "layouts"
 publishdir: "public"
 indexes:
   category: "categories"
-baseurl: "http://codetips.me"
+baseurl: "http://codelib.me"
 title: "Qi's Blog"
 canonifyurls: true
 copyright: "2016 Qi."
