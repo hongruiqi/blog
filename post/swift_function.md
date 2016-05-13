@@ -5,6 +5,7 @@ draft = true
 title = "Swift从入坑到弃坑_函数"
 slug = "swift_tutorial_function"
 weight = 4
+categories = "swift_tutorial"
 
 +++
 -->

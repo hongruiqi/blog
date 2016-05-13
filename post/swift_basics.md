@@ -5,6 +5,7 @@ draft = false
 title = "Swift从入坑到弃坑_基础"
 slug = "swift_tutorial_basics"
 weight = 1
+categories = "swift_tutorial"
 
 +++
 -->
