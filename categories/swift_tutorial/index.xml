@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Swift_tutorial on Qi&#39;s Blog</title>
+    <link>http://codetips.me/categories/swift_tutorial/</link>
+    <description>Recent content in Swift_tutorial on Qi&#39;s Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>2016 Qi.</copyright>
+    <lastBuildDate>Wed, 11 May 2016 17:05:30 +0800</lastBuildDate>
+    <atom:link href="http://codetips.me/categories/swift_tutorial/index.xml" rel="self" type="application/rss+xml" />
+    
+    <item>
+      <title>Swift从入坑到弃坑_基础</title>
+      <link>http://codetips.me/post/swift_tutorial_basics/</link>
+      <pubDate>Wed, 11 May 2016 17:05:30 +0800</pubDate>
+      
+      <guid>http://codetips.me/post/swift_tutorial_basics/</guid>
+      <description>
+
+&lt;h1 id=&#34;hello-world:b17b3696e07fa6ec22e07021c5329587&#34;&gt;Hello World&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;print(&amp;quot;hello&amp;quot;)
+print(&amp;quot;world&amp;quot;)
+
+print(&amp;quot;foo&amp;quot;); print(&amp;quot;bar&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;每个Swift源码文件中包含多行文本，每个换行符结束一条语句。语句也可以以分号结束，但除了用于分隔同一行内的多条语句外，分号都被省略。&lt;/p&gt;
+
+&lt;p&gt;print函数由于打印输出字符串。&lt;/p&gt;
+
+&lt;h1 id=&#34;变量和常量:b17b3696e07fa6ec22e07021c5329587&#34;&gt;变量和常量&lt;/h1&gt;
+
+&lt;p&gt;Swift中的名字必须先声明才能使用。&lt;code&gt;let&lt;/code&gt;关键字用于声明常量，&lt;code&gt;var&lt;/code&gt;关键字用于声明变量。声明通常伴随着初始化。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let one = 1
+var two = 2
+
+two = one // 变量可以改变
+one = tow // 编译错误！常量初始化后不可改变
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift是强类型的语言，每个变量在声明时都确定了类型。如果变量声明的同时进行了初始化，则其类型可由编译器根据初始化的值自动推断（&lt;code&gt;one&lt;/code&gt;和&lt;code&gt;two&lt;/code&gt;由整数初始化，故自动推断为&lt;code&gt;Int&lt;/code&gt;型）；也可以手工指定变量类型。变量声明后，只能被赋予同类型的值，否则无法通过编译。变量必须初始化后才能使用，使用未经初始化的变量会造成编译错误。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;var three: Int = 3
+three = &amp;quot;123&amp;quot; // 编译错误！three为整型，无法被赋予字符串
+
+var four: Int
+three = four // 编译错误！four未被初始化
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;注释:b17b3696e07fa6ec22e07021c5329587&#34;&gt;注释&lt;/h1&gt;
+
+&lt;p&gt;Swift中使用&lt;code&gt;//&lt;/code&gt;进行单行注释，使用&lt;code&gt;/* */&lt;/code&gt;进行多行注释，多行注释可嵌套，便于扩展注释的范围。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;// 这是一个单行注释
+/*
+   这是
+   一个
+   /* 嵌套的 */
+   多行
+   注释
+*/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;基本数据类型:b17b3696e07fa6ec22e07021c5329587&#34;&gt;基本数据类型&lt;/h1&gt;
+
+&lt;h2 id=&#34;整型:b17b3696e07fa6ec22e07021c5329587&#34;&gt;整型&lt;/h2&gt;
+
+&lt;p&gt;Swift中的整型分为有符号整型和无符号整型，按照8位、16位、32位、64位的长度分别为：&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;有符号整型：&lt;code&gt;Int8&lt;/code&gt;，&lt;code&gt;Int16&lt;/code&gt;，&lt;code&gt;int32&lt;/code&gt;，&lt;code&gt;int64&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;无符号整型：&lt;code&gt;UInt8&lt;/code&gt;，&lt;code&gt;UInt16&lt;/code&gt;，&lt;code&gt;UInt32&lt;/code&gt;，&lt;code&gt;UInt64&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;此外，还有两种特殊的整型类型，&lt;code&gt;Int&lt;/code&gt;和&lt;code&gt;UInt&lt;/code&gt;。其长度与平台有关，在32位系统上为32位，在64位系统上为64位。每种整型的范围可如下得到。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let minValue = UInt8.min
+let maxValue = UInt8.max
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Swift中的整型在使用&lt;code&gt;+&lt;/code&gt;、&lt;code&gt;-&lt;/code&gt;、&lt;code&gt;*&lt;/code&gt;溢出时，会产生运行时错误。不同类型的整型无法相互赋值，必须先进行转换。因此，为方便变量传递，通常都使用&lt;code&gt;Int&lt;/code&gt;类型。&lt;/p&gt;
+
+&lt;h2 id=&#34;浮点数:b17b3696e07fa6ec22e07021c5329587&#34;&gt;浮点数&lt;/h2&gt;
+
+&lt;p&gt;Swift中有两种浮点型，分别为32位的&lt;code&gt;Float&lt;/code&gt;和64位的&lt;code&gt;Double&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h2 id=&#34;布尔型:b17b3696e07fa6ec22e07021c5329587&#34;&gt;布尔型&lt;/h2&gt;
+
+&lt;p&gt;Swift中的布尔型命名为&lt;code&gt;Bool&lt;/code&gt;，其真值为&lt;code&gt;true&lt;/code&gt;，假值为&lt;code&gt;false&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h2 id=&#34;字符串:b17b3696e07fa6ec22e07021c5329587&#34;&gt;字符串&lt;/h2&gt;
+
+&lt;p&gt;Swift中的字符串类型命名为&lt;code&gt;String&lt;/code&gt;。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let str: String = &amp;quot;hello&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;右侧的字符串中可插入变量名，在赋值前，其中的变量名会被替换为变量的值。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let name = &amp;quot;Qi&amp;quot;
+let greet = &amp;quot;hello \(name)&amp;quot; // greet被赋值为&amp;quot;hello Qi&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h2 id=&#34;tuple:b17b3696e07fa6ec22e07021c5329587&#34;&gt;Tuple&lt;/h2&gt;
+
+&lt;p&gt;Swift中可以通过&lt;code&gt;Tuple&lt;/code&gt;将若干个不同类型的值绑定在一起。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let http404Error = (404, &amp;quot;Not Found&amp;quot;) // http404Error的类型是(Int, String)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;通过以下方法可以解出&lt;code&gt;Tuple&lt;/code&gt;中的数据&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let (statusCode, statusText) = http404Error
+// 或者
+let statusCode = http404Error.0 // Tuple中第0个元素
+let statusText = http404Error.1 // Tuple中第1个元素
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;断言:b17b3696e07fa6ec22e07021c5329587&#34;&gt;断言&lt;/h1&gt;
+
+&lt;p&gt;Swift中可通过&lt;code&gt;assert&lt;/code&gt;判断程序运行的输入和产出是否符合预期，若不符合则程序产生运行时错误。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;assert(age &amp;gt;= 0, &amp;quot;A person&#39;s age cannot be less than zero&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;assert在开启编译器优化时会被忽略。&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Swift从入坑到弃坑_字符和字符串</title>
+      <link>http://codetips.me/post/swift_tutorial_string/</link>
+      <pubDate>Thu, 12 May 2016 07:38:03 +0800</pubDate>
+      
+      <guid>http://codetips.me/post/swift_tutorial_string/</guid>
+      <description>
+
+&lt;h1 id=&#34;字符串类型和初始化:bf537d4aea28ba15c433077890eb0a13&#34;&gt;字符串类型和初始化&lt;/h1&gt;
+
+&lt;p&gt;Swift中的字符串类型为&lt;code&gt;String&lt;/code&gt;，其中包含若干&lt;code&gt;Character&lt;/code&gt;类型的字符。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let greet = &amp;quot;hello world&amp;quot; // String
+let letter = &amp;quot;a&amp;quot; // Character
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;字符串的常用操作:bf537d4aea28ba15c433077890eb0a13&#34;&gt;字符串的常用操作&lt;/h1&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;// 字符串初始化
+var emptyString = &amp;quot;&amp;quot;
+var anotherEmptyString = String()
+
+// 字符串判空
+emptyString.isEmpty
+
+// 字符串连接
+var a = &amp;quot;hello&amp;quot;
+a += &amp;quot;world&amp;quot;
+a = a + &amp;quot;!&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Swift从入坑到弃坑_可选值</title>
+      <link>http://codetips.me/post/swift_tutorial_optional/</link>
+      <pubDate>Wed, 11 May 2016 18:16:40 +0800</pubDate>
+      
+      <guid>http://codetips.me/post/swift_tutorial_optional/</guid>
+      <description>
+
+&lt;h1 id=&#34;可选值:dba3b55966480093945a42c46dc9c237&#34;&gt;可选值&lt;/h1&gt;
+
+&lt;p&gt;Swift中变量的值可以声明为可选，声明方式是在类型名后加上&lt;code&gt;?&lt;/code&gt;号。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;var x Int?
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可选值的变量中可以保存&lt;code&gt;?&lt;/code&gt;号前类型的值，也可以赋值为&lt;code&gt;nil&lt;/code&gt;，表示其中没有值。可选值的变量在声明时若不进行初始化，则默认初始化为&lt;code&gt;nil&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h1 id=&#34;读取值:dba3b55966480093945a42c46dc9c237&#34;&gt;读取值&lt;/h1&gt;
+
+&lt;p&gt;可选值的变量在读取值前，需要判断值是否存在，方法是与nil进行比较。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;if x == nil {
+  print(&amp;quot;absent&amp;quot;)
+} else {
+  let xx = x!
+  print(&amp;quot;x is \(xx)&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;可选值变量必须通过在其后添加&lt;code&gt;!&lt;/code&gt;号读取，无法直接赋值给普通变量。若变量中不存在值，则在读取时会产生运行时错误。因此，在读取前需要先进行判断。&lt;/p&gt;
+
+&lt;p&gt;判断和读取值可以在if的条件内合并书写。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;if let xx = x {
+  print(&amp;quot;x is \(xx)&amp;quot;)
+} else {
+  print(&amp;quot;absent&amp;quot;)
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h1 id=&#34;可选值的应用场景:dba3b55966480093945a42c46dc9c237&#34;&gt;可选值的应用场景&lt;/h1&gt;
+
+&lt;p&gt;可选值可用于错误的反馈。例如&lt;code&gt;Int(_:)&lt;/code&gt;可以将字符串转换为整型数，但并不是所有的字符串都可转换成整型数，因此需要在返回值中对失败的情况作区分。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let x: Int? = Int(&amp;quot;not a number&amp;quot;)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;此时，&lt;code&gt;Int&lt;/code&gt;函数返回的是&lt;code&gt;Int?&lt;/code&gt;型，当参数字符串中不是整数时，返回&lt;code&gt;nil&lt;/code&gt;。&lt;/p&gt;
+
+&lt;h1 id=&#34;隐式拆包的可选值:dba3b55966480093945a42c46dc9c237&#34;&gt;隐式拆包的可选值&lt;/h1&gt;
+
+&lt;p&gt;在某些场景下，我们可以确定得到的可选值变量里一定保存着值，那么可以使用隐式拆包，方法是在类型名后加上&lt;code&gt;!&lt;/code&gt;号。此时，隐式拆包的变量可以直接赋值给非可选值的变量。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let s = 111
+let x: Int! = Int(&amp;quot;\(s)&amp;quot;)
+let y: Int = x
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;若隐式拆包时，可选值变量中的不存在，则会产生运行时错误。&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-swift&#34;&gt;let x: Int? = Int(&amp;quot;not a number&amp;quot;)
+let y: Int! = x // 运行时错误，拆包时值不存在
+let z: Int = x // 编译时错误，可选值变量赋给普通变量
+let w: Int = x! // 运行时错误，拆包时值不存在
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
